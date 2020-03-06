@@ -1,0 +1,398 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    display: flex;
+    position: relative;
+}
+
+.tarjeta{
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    max-width: 875px;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.slider{
+    height: 100%;
+    max-height: 300px;
+    width: 100%;
+    position: relative;
+}
+
+.slider .contenedor{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    position: relative;
+    background-color: black;
+}
+
+.slider .slide{
+    min-width: 100%;
+    display: flex;
+}
+
+.slider .slide img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.slider .controles{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slider .controles span#like{
+    color: #000;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: all linear .2s;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.slider .controles span#like path{
+    stroke: white;
+    stroke-width: 30px;
+}
+
+.slider .controles span#like.active{
+    color: rgb(236, 78, 78);
+}
+
+.slider .controles span#label{
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background-color: rgb(146, 60, 185);
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.slider .controles span#anterior,
+.slider .controles span#siguiente{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: rgba(255,255,255, .7);
+    cursor: pointer;
+    transition: all linear .2s;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.slider .controles span#anterior:hover,
+.slider .controles span#siguiente:hover{
+    color: rgba(255,255,255, 1);
+    background-color: rgba(0,0,0,.7);
+}
+
+.slider .controles span#anterior{
+    left: 10px;
+}
+
+.slider .controles span#siguiente{
+    right: 10px;
+}
+
+.slider .controles .dots{
+    list-style-type: none;
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider .controles .dots .dot{
+    margin-right: 1%;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255,255,255, .6);
+    border-radius: 50%;
+}
+
+.slider .controles .dots .dot.active{
+    background-color: rgba(255,255,255, 1);
+}
+
+.tarjeta .datos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.tarjeta .datos > *{
+    padding: 0 10px;
+}
+
+.tarjeta .datos h3{
+    font-size: 20px;
+    font-weight: normal;
+    color: rgb(86, 162, 224);
+    margin: 10px 0;
+}
+
+.tarjeta .datos .ubicacion{
+    color: #999;
+}
+
+.tarjeta .datos p{
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+
+.tarjeta .datos .precio{
+    margin-bottom: 10px; 
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+
+.tarjeta .datos .precio h2{
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    justify-content: flex-start;
+}
+
+.tarjeta .datos .precio span{
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    margin-right: 5px;
+}
+
+.tarjeta .datos .precio input{
+    display: none;
+    margin-right: 10px;
+    background: none;
+    border: none;
+    border-bottom: rgb(86, 162, 224) 2px solid;
+    padding: 5px;
+}
+
+.tarjeta .datos .precio small{
+    font-size: 18px;
+    color: rgb(86, 162, 224);
+    font-style: italic;
+    cursor: default;
+}
+
+.tarjeta .datos .footer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px;
+    height: 50px;
+    width: 100%;
+    background-color: #eee;
+    margin-top: auto;
+}
+
+.tarjeta .datos ul{
+    list-style-type: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.tarjeta .datos ul li{
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.tarjeta .datos button{
+    background: none;
+    border: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: rgb(86, 162, 224);
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.tarjeta .datos button:hover{
+    color: rgb(40, 139, 219);
+}
+
+/*modal y formulario*/
+.modal{
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,.3);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.visible{
+    display: flex;
+}
+
+.modal .wrap{
+    padding: 20px;
+    max-width: 900px;
+    background-color: #fff;;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+}
+
+.modal .wrap span{
+    color:rgb(86, 162, 224);
+    margin-bottom: 40px;
+}
+
+.modal .wrap label{
+    padding: 5px;
+    color: #777;
+    transition: all linear .2s;
+    font-size: 14px;
+    transform: translateY(-100%);
+    cursor: text
+}
+
+.modal .wrap input{
+    background: none;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+    transition: all linear .2s;
+}
+
+/* Inicio estilos validacion de input */
+.modal .wrap input:focus,
+.modal .wrap input:not(:placeholder-shown){
+    border-bottom: 1px solid rgb(86, 162, 224);
+}
+
+.modal .wrap input:focus ~label,
+.modal .wrap input:not(:placeholder-shown) ~label{
+    color:rgb(86, 162, 224);
+    transform: translateY(calc(-100% - 25px));
+}
+
+.modal .wrap input:invalid,
+.modal .wrap input.invalid{
+    border-bottom: 1px solid rgb(236, 78, 78);
+}
+
+.modal .wrap input:invalid ~label,
+.modal .wrap input.invalid ~label{
+    color: rgb(236, 78, 78);
+    transform: translateY(calc(-100% - 25px));
+}
+
+/*fin validacion input*/
+
+.modal .wrap p{
+    font-size: 14px;
+    color: rgb(236, 78, 78);
+    display: none;
+}
+
+.modal .wrap p.visible{
+    display: initial;
+}
+
+.modal .wrap button{
+    background: none;
+    margin-top: 15px;
+    border: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: rgb(86, 162, 224);
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.modal .wrap button:hover{
+    color: rgb(40, 139, 219);
+}
+
+.modal .wrap button.close{
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+/*estilos para version adatable*/
+@media (max-width: 733px){
+    .tarjeta{
+        margin: 0 auto;
+        width: 100%;
+        max-width: 414px;
+        min-width: 320px;
+        display: grid;
+        grid-template-rows: 40% 1fr;
+        grid-template-columns: auto;
+    }
+
+    .slider{
+        max-height: 350px;
+    }
+
+    .slider .controles .dots{
+        display: none;
+    }
+
+    .tarjeta .datos{
+        position: relative;
+        padding: 0 10px;
+    }
+
+    .tarjeta .datos .precio{
+        position: absolute;
+        top: -25%;
+        left: 15px;
+        color: #fff;
+        z-index: 9;
+    }
+
+    .tarjeta .datos .precio span,
+    .tarjeta .datos .precio small,
+    .tarjeta .datos .precio input{
+        color: #fff;
+    }
+
+    .tarjeta .datos .footer{
+        background-color: transparent;
+    }
+
+    .tarjeta .datos ul{
+        width: 100%;
+        display: flex;
+        color: #fff;
+        position: absolute;
+        top: -57%;
+        left: 20px;
+    }
+
+}

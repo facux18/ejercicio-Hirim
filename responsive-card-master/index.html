@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- fuente roboto -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Iconos -->
+    <script
+      src="https://kit.fontawesome.com/8fb0187cba.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- estilos -->
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="normalize.css" />
+  </head>
+  <body>
+    <div class="tarjeta">
+        <div class="slider" id="slider"> 
+          
+          <div class="contenedor" id="contenedor">
+              <div class="slide">
+                  <img src="img/48361595105879000264411147341923002599928725183753470390513933417694442320880.jpg" alt="">
+              </div>
+              <div class="slide">
+                  <img src="img/20387544594618197555129221447133870292361218521378054200428286701090776749748.jpg" alt="">
+              </div>
+              <div class="slide">
+                  <img src="img/25522839000022972443327583602063401731716201060001914777867844777724995143912.jpg" alt="">
+              </div>
+              <div class="slide">
+                <img src="img/69145302303846824643246107363151383008625186242271907822383892564656817320997.jpg" alt="">
+            </div>
+          </div>
+          
+          <div class="controles">
+            <span id="label">Super destacado</span>
+            <span id="like" onclick="toggleLike(this)"><i class="fas fa-heart"></i></span>
+
+            <span id="anterior" onclick="prev()"><i class="fas fa-chevron-left"></i></span>
+            <span id="siguiente" onclick="next()"><i class="fas fa-chevron-right"></i></span>
+            <ul class="dots" id="dots">
+            </ul>
+          </div> 
+          
+      </div>
+      <div class="datos">
+        <div>
+          <h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est!
+          </h3>
+          <span class="ubicacion"
+            ><i class="fas fa-map-marker-alt"></i> Juan Francisco Seguí 3900,
+            Palermo Chico, Palermo.</span
+          >
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque
+            repudiandae culpa necessitatibus iure impedit illo! Architecto veniam
+            excepturi obcaecati facilis.
+          </p>
+          <div class="precio">
+            <span>U$S</span>
+            <h2 id="precio" onclick="editarInputPrecio()">1.400.000</h2>
+            <input
+              type="text"
+              id="input-precio"
+              onkeypress="return validarInput(event)"
+            />
+            <small id="precio-metro">$/m <sup>2</sup> 3.680</small>
+          </div>
+        </div>
+        <div class="footer">
+          <ul>
+            <li id="metros-cuadrados">380m<sup>2</sup></li>
+            <li>1 Dormitorios</li>
+            <li>1 Baños</li>
+            <li>1 Cocheras</li>
+          </ul>
+          <button onclick="abrirModal()">Contactar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal">
+      <form class="wrap">
+        <span>Para ser contactado por favor ingrese su direccion de correo electrónico</span>
+        <input type="email" id="input-email" placeholder=" " onkeyup="checkInput(this)">
+        <label for="input-email">Correo electrónico</label>
+        <p id="mensaje"> Por favor ingrese un email válido</p>
+        <button type="button" onclick="enviar()">Enviar</button>
+      </form>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
